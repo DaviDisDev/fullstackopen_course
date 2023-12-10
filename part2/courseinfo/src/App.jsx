@@ -19,11 +19,7 @@ const Content = (props) => {
 
 const Total = (props) => {
 
-  let total = 0;
-
-  props.parts.forEach(part => {
-    total += part.exercises
-  });
+  var total = props.parts.reduce((acc, obj) => acc + obj.exercises, 0);
 
   return (<b>the exercises of course {total}</b>)
 }
