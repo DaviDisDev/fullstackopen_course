@@ -1,4 +1,7 @@
+import React from 'react'
+
 const Persons = ({ persons }) => {
+
     return (
         <>
             <ul>
