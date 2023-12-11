@@ -13,7 +13,6 @@ const App = () => {
   const [originalPersons, setOriginalPersons] = useState([]);
 
   useEffect(() => {
-
     axios
       .get('http://localhost:3001/persons')
       .then(response => {
