@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
-import axios from 'axios'
 import PersonService from './services/PersonService'
+import Notification from './components/Notification'
 
 
 
@@ -14,6 +14,8 @@ const App = () => {
   const [newSearch, setNewSearch] = useState('')
   const [persons, setPersons] = useState([])
   const [originalPersons, setOriginalPersons] = useState([]);
+  const [message, setmessage] = useState(null)
+  const [classMessage, setClassMessage] = useState(null)
 
   useEffect(() => {
 
@@ -37,9 +39,22 @@ const App = () => {
         .deleteContact(id)
         .then(response => {
           setPersons([...persons.filter(person => person.id != id)])
+          setmessage(` ${name} has  removed from server`);
+          setClassMessage('success');
+
+          setTimeout(() => {
+            setmessage(null);
+            setClassMessage(null);
+          }, 5000);
         })
         .catch(error => {
-          console.log(error)
+          setmessage(`The information of  ${name} has alredy removed from server`);
+          setClassMessage('error');
+
+          setTimeout(() => {
+            setmessage(null);
+            setClassMessage(null);
+          }, 5000);
         })
     }
 
@@ -84,7 +99,22 @@ const App = () => {
           .then(returnedNote => {
 
             setPersons(persons.map(person => person.id !== returnedNote.id ? person : returnedNote))
+            setmessage(`Update : ${newName}`);
+            setClassMessage('success');
+            setTimeout(() => {
+              setmessage(null);
+              setClassMessage(null);
+            }, 5000);
 
+          })
+          .catch(error => {
+            setmessage(`The information of  ${newName} has alredy removed from server`);
+            setClassMessage('error');
+
+            setTimeout(() => {
+              setmessage(null);
+              setClassMessage(null);
+            }, 5000);
           })
 
       } else {
@@ -101,16 +131,23 @@ const App = () => {
 
         })
 
-      setPersons([...persons, personObject])
-      setNewName('')
-      setNewNumber('')
+      setPersons([...persons, personObject]);
+      setNewName('');
+      setNewNumber('');
+      setmessage(`Added : ${newName}`);
+      setClassMessage('success');
+
+      setTimeout(() => {
+        setmessage(null);
+        setClassMessage(null);
+      }, 5000);
     }
 
   }
   return (
     <div>
       <h2>Phonebook</h2>
-
+      <Notification message={message} classMessage={classMessage} />
       <Filter newSearch={newSearch} handleSearch={handleSearch} />
 
       <h2>add a new</h2>
