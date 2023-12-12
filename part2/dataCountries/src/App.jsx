@@ -102,7 +102,7 @@ function App() {
     }
     const found = originalCountries.filter(item => item["name"]["common"].toLowerCase().includes(event.target.value.toLocaleLowerCase()))
     console.log("propio", weather)
-    setCountries(found)
+    setCountries([...found])
     setNewSearch(event.target.value)
 
   }
@@ -110,7 +110,7 @@ function App() {
   const handleShow = (name) => {
 
     const found = originalCountries.filter(item => item["cca2"].includes(name))
-    setCountries(found)
+    setCountries([...found])
 
   }
   return (
