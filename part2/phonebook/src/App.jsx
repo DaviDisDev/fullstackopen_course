@@ -56,7 +56,7 @@ const App = () => {
   const handleSearch = (event) => {
     const found = originalPersons.filter(item => item.name.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase()))
 
-    setPersons(found)
+    setPersons([...found])
 
     setNewSearch(event.target.value)
   }
@@ -64,7 +64,6 @@ const App = () => {
   const addName = (event) => {
     event.preventDefault()
     const newID = (persons[persons.length - 1]["id"]) + 1
-
 
     const personObject = {
       name: newName,
@@ -77,7 +76,8 @@ const App = () => {
       if (confirm(`${newName} is already added to phonebook,reeplace the old number with the new one?`)) {
 
         const changedNumber = { ...found, number: personObject["number"] }
-        console.log(changedNumber)
+        setNewName('')
+        setNewNumber('')
 
         PersonService
           .update(found["id"], changedNumber)
