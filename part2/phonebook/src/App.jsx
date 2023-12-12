@@ -23,6 +23,7 @@ const App = () => {
   }, [])
 
   const handleNameChange = (event) => {
+    console.log(event.target.value)
     setNewName(event.target.value)
   }
 
@@ -40,9 +41,11 @@ const App = () => {
 
   const addName = (event) => {
     event.preventDefault()
+
     const personObject = {
       name: newName,
-      number: newNumber
+      number: newNumber,
+      id: 6
     }
     const found = persons.some(person => person.name === newName);
 
@@ -52,6 +55,7 @@ const App = () => {
       setNewNumber('')
     } else {
 
+      setPersons([...persons, personObject])
       setNewName('')
       setNewNumber('')
     }
