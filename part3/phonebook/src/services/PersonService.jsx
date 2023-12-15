@@ -23,4 +23,5 @@ const deleteContact = (id) => {
     return request.then(response => response.data)
 }
 
+
 export default { getAll, create, update, deleteContact }
