@@ -78,12 +78,10 @@ const App = () => {
 
   const addName = (event) => {
     event.preventDefault()
-    const newID = (persons[persons.length - 1]["id"]) + 1
 
     const personObject = {
       name: newName,
-      number: newNumber,
-      id: newID
+      number: newNumber
     }
     const found = persons.find(person => person.name === newName);
 
@@ -108,7 +106,8 @@ const App = () => {
 
           })
           .catch(error => {
-            setmessage(`The information of  ${newName} has alredy removed from server`);
+            console.log(error)
+            setmessage(error.message);
             setClassMessage('error');
 
             setTimeout(() => {
@@ -128,14 +127,18 @@ const App = () => {
         .then(response => {
           setPersons([...persons.concat(response)])
           setOriginalPersons([...persons.concat(response)])
-
+          setmessage(`Added : ${newName}`);
+          setClassMessage('success');
         })
+        .catch(error => {
+          console.log(error)
+          setmessage(error.message);
+          setClassMessage('error');
 
-      setPersons([...persons, personObject]);
+        });
+
       setNewName('');
       setNewNumber('');
-      setmessage(`Added : ${newName}`);
-      setClassMessage('success');
 
       setTimeout(() => {
         setmessage(null);
