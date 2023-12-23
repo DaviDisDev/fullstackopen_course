@@ -50,7 +50,7 @@ describe('Most likes', () => {
           likes: 2,
           __v: 0
         }  
-      ]
+      ];
     test('the blog with most votes', () => {
       const result = favoriteHelper.favoriteBlog(blogs)
       expect(result).toEqual(12)
