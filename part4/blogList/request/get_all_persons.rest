@@ -1,7 +1,10 @@
  http://localhost:3003/api/blogs/
 
+ 
+
+
 ###
-DELETE   http://localhost:3003/api/blogs/65840ed6c94e6e0853c3b089
+DELETE   http://localhost:3003/api/blogs/658c40934ec037879188d24b
 
 ###
 
@@ -9,7 +12,7 @@ POST  http://localhost:3003/api/blogs/
 Content-Type: application/json
 
 {
-  "title":"pepe link",
+  "title":"pepe link 2",
   "author": "pepe",
   "url":"www.digimon.jp",
   "likes":16
