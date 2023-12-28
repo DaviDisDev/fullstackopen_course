@@ -5,7 +5,13 @@
 DELETE   http://localhost:3003/api/blogs/658d4b6a02643b72f252f1d1
 
 ###
+PUT http://localhost:3003/api/blogs/658416e4d1bb6a0fc09e141d
+Content-Type: application/json
 
+{
+  "likes": 9999
+}
+###
 POST  http://localhost:3003/api/blogs/
 Content-Type: application/json
 
