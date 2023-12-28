@@ -18,13 +18,21 @@ blogsRouter.get('/', async (request, response) => {
   })
 
 blogsRouter.post('/',async (request, response) => {
-    const blog = new Blog(request.body)
+    
+    const blogData = request.body;
 
-   await blog
-        .save()
-        .then(result => {
-        response.status(201).json(result)
-        })
+  
+    const likes = blogData.likes !== undefined ? blogData.likes : 0;
+
+    const blog = new Blog({
+        title: blogData.title,
+        author: blogData.author,
+        url: blogData.url,
+        likes: likes, 
+    });
+    const result = await blog.save();
+    response.status(201).json(result);
+
 })
 /* 
 blogsRouter.post('/', async (request, response) => {
