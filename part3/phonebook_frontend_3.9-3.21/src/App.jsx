@@ -6,8 +6,6 @@ import PersonService from './services/PersonService'
 import Notification from './components/Notification'
 
 
-
-
 const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')

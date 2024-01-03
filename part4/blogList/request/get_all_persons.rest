@@ -1,7 +1,11 @@
  http://localhost:3003/api/blogs/
-
 ###
-DELETE   http://localhost:3003/api/blogs/658ef6110ceb155a87daf871
+
+GET   http://localhost:3003/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWQiOiI2NTk1MmY5YTA1Y2MwN2U4MjZkOWQxNWIiLCJpYXQiOjE3MDQyNzYwNjB9.a_ZKsRM9gaN4sAiQ_ElgKQQyQtWPJ_a3O6J_jXNl0RU
+###
+DELETE   http://localhost:3003/api/blogs/6595776989ea0f75ffeaef42
 ###
 PUT http://localhost:3003/api/blogs/658416e4d1bb6a0fc09e141d
 Content-Type: application/json
@@ -26,8 +30,8 @@ POST  http://localhost:3003/api/users/
 Content-Type: application/json
 
 {
-  "username":"deleteman",
-  "name": "puta",
+  "username":"user2",
+  "name": "batman",
   "password":"123456"
 }
 ###
@@ -41,7 +45,7 @@ POST  http://localhost:3003/api/login/
 Content-Type: application/json
 
 {
-  "username":"deleteman",
+  "username":"user1",
   "password":"123456"
 }
 
@@ -49,14 +53,14 @@ Content-Type: application/json
 
 POST  http://localhost:3003/api/blogs/
 Content-Type: application/json
-Authorization: bearer eyJhbfGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlbGV0ZW1hbiIsImlkIjoiNjU5M2UzMGRjYTMzMzhhY2M0OTBmZTgzIiwiaWF0IjoxNzA0MTkyNzU1fQ.SrrsE9UYGwkURNO5kUvy6WewSt-Bbo7V-s8w50iVhWg
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2NTk1MmZkNjA1Y2MwN2U4MjZkOWQxNjUiLCJpYXQiOjE3MDQyNzU5MzN9.yeAPtP5c88AQBUIFlGp9OmfLsXZOmAzY5JNJVggBAHU
 
 {
- "title":"to delete",
-  "author": "deleteBwoy",
-  "url":"www.digimon.jp"
+ "title":"Blog 4",
+  "author": "batman",
+  "url":"www.satifayer.com"
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/6593e331ca3338acc490fe89
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRlbGV0ZW1hbiIsImlkIjoiNjU5M2UzMGRjYTMzMzhhY2M0OTBmZTgzIiwiaWF0IjoxNzA0MTkwNzQ2fQ.zhfM6LmbnyRcZV-Ay7sj7pdJaCYGLQc4qgFFyug6GYs
+DELETE http://localhost:3003/api/blogs/6595776989ea0f75ffeaef42
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2NTk1MmZkNjA1Y2MwN2U4MjZkOWQxNjUiLCJpYXQiOjE3MDQyNzU5MzN9.yeAPtP5c88AQBUIFlGp9OmfLsXZOmAzY5JNJVggBAHU

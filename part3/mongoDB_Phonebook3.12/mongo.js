@@ -10,6 +10,7 @@ const content = process.argv[3];
 const number = process.argv[4];
 
 const url = `mongodb+srv://fullstack_helsinki:${password}@cluster0.ie6uhog.mongodb.net/phonebook-app?retryWrites=true`;
+
 mongoose.connect(url)
 
 const contactSchema = new mongoose.Schema({

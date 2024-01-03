@@ -1,7 +1,9 @@
 import axios from 'axios'
+//version online 
+//const baseUrl = '/api/persons';
 
-const baseUrl = '/api/persons';
-//const baseUrl = 'http://localhost:3001/api/persons';
+//version local que conecta con phonebook+heroku
+const baseUrl = 'http://localhost:3001/api/persons';
 const getAll = () => {
     const request = axios.get(baseUrl)
     console.log(request.then(response => response.data))
