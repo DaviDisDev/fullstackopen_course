@@ -117,10 +117,13 @@ const App = () => {
 
     } catch (exception) {
 
-      /* setErrorMessage('Wrong credentials');
+      setmessage(`something has happened wrong`);
+      setClassMessage('error');
+
       setTimeout(() => {
-        setErrorMessage(null);
-      }, 5000); */
+        setmessage(null);
+        setClassMessage(null);
+      }, 5000);
     }
   };
   return (
