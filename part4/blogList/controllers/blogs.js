@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 blogsRouter.get('/', async (request, response) => {
   const decodedToken = jwt.verify(request.token, process.env.SECRET);
   const blogs = await Blog
-    .find({ user: decodedToken.id })
+    .find({})
     .populate('user', { username: 1, name: 1 });
 
 

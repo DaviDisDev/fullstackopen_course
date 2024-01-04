@@ -91,7 +91,7 @@ const App = () => {
   const blogsList = () => (
     <>
       {blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} updateLikes={updateLikes} setBlogs={setBlogs} />
+        <Blog key={blog.id} blog={blog} setBlogs={setBlogs} />
       )}
     </>
   );
@@ -133,13 +133,7 @@ const App = () => {
     }
   };
 
-  const updateLikes = async (updatedBlog) => {
-    setBlogs((prevBlogs) =>
-      prevBlogs.map((blog) =>
-        blog.id === updatedBlog.id ? updatedBlog : blog
-      )
-    );
-  };
+
 
   return (
     <div>

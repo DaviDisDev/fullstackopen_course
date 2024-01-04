@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BlogService from '../services/blogs';
 
-const Blog = ({ blog, updateLikes, setBlogs }) => {
+const Blog = ({ blog, setBlogs }) => {
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -22,25 +22,32 @@ const Blog = ({ blog, updateLikes, setBlogs }) => {
     try {
       // Utiliza newBlog en lugar de updatedBlog
       const newBlog = await BlogService.updateLikes(blog);
-      updateLikes(newBlog);
+      const blogs = await BlogService.getAll();
+      setBlogs(blogs);
+
     } catch (exception) {
       console.log(exception);
     }
   };
-  const deleteBlog = async (blog) => {
-    if (confirm(`Delete blog ${blog.title} by  ${blog.author}`)) {
-      try {
 
-        const newBlog = await BlogService.deleteBlog(blog.id);
+  const deleteBlogHandler = async () => {
+    if (window.confirm(`Delete blog ${blog.title} by ${blog.author}?`)) {
+      try {
+        await BlogService.deleteBlog(blog.id);
         const blogs = await BlogService.getAll();
         setBlogs(blogs);
       } catch (exception) {
         console.log(exception);
       }
     }
-
   };
 
+  const storedUser = JSON.parse(localStorage.getItem('loggedUser'));
+
+  const blogUsername = blog.user.username;
+  console.log("usuario del Blog", blogUsername)
+  const userDelete = storedUser.username
+  console.log("el que quiere borrar", userDelete)
 
   return (
     <div style={blogStyle}>
@@ -52,7 +59,7 @@ const Blog = ({ blog, updateLikes, setBlogs }) => {
         <p>{blog.url}</p>
         <p> likes {blog.likes} <button onClick={() => createNote()}>like</button></p>
         <p>{blog.author}</p>
-        <button onClick={() => deleteBlog(blog)}>Delete</button>
+        {blogUsername != userDelete ? "" : <button onClick={() => deleteBlogHandler()}>Delete</button>}
       </div>
     </div>
   );
